@@ -1,0 +1,46 @@
+/* Phone layout. Everything here only applies to screens 700px wide or less. */
+@media (max-width: 700px) {
+
+  /* Header: name on top, links underneath */
+  .hdr { height: auto !important; flex-wrap: wrap; justify-content: center; gap: 6px 0; padding: 10px 4vw !important; }
+  .hdr > span:first-child { display: none; }
+  .hdr > a:first-of-type, .hdr .hname { flex: 1 1 100% !important; text-align: center; padding: 0 !important; opacity: 1 !important; }
+  .hdr .mini { display: none; }
+  .hdr nav[aria-label="Main"] { flex: 1 1 100% !important; justify-content: center !important; gap: 22px !important; padding: 0 !important; }
+
+  /* Footer: two short rows */
+  .ftr { font-size: 10px !important; padding: 8px 4vw !important; }
+  .ftr > * { flex: 1 1 40% !important; padding-left: 0 !important; }
+  .ftr > a[aria-label="Back to top"] { flex: 0 0 auto !important; }
+
+  /* Homepage arches: show the centre of the scene instead of a close-up */
+  .scene .fit { transform: translate(-50%, -50%) scale(.62) !important; }
+
+  .scene .hint { display: none !important; }
+
+  /* Icons: a row above the chalice; as the page scrolls it rises and docks under the header */
+  .icons { position: sticky !important; inset: auto !important; top: var(--hh, 92px) !important; z-index: 20 !important; height: 0; margin: calc(-50vh - 80px) 0 calc(50vh + 80px) !important; display: flex; justify-content: center; gap: 0; }
+  .icons::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 68px; background: #0E0D0D; border-bottom: 1px solid rgba(228,223,214,.18); opacity: 0; transition: opacity .25s; }
+  [data-dock="1"] .icons::before { opacity: 1; }
+  .icons .ic { position: relative !important; left: auto !important; top: auto !important; transform: none !important; width: 58px; height: 68px; font-size: 10px; letter-spacing: .06em; gap: 3px; justify-content: flex-start; padding-top: 4px; box-sizing: border-box; }
+  .icons .ic img { width: 44px; height: 44px; transition: width .25s, height .25s; }
+  [data-dock="1"] .icons .ic img { width: 34px; height: 34px; }
+  [data-dock="1"] .icons .ic { padding-top: 8px; }
+
+  /* Work slider becomes a list */
+  .books { clip-path: none !important; padding-top: 70px !important; }
+  .bhead { text-align: center; margin: 0 0 44px !important; font-size: 22px !important; }
+  /* each project: images, then its text close underneath */
+  .slide { gap: 26px !important; margin-bottom: 72px !important; }
+  .slide .pair { flex: none !important; gap: 16px !important; }
+  .slide .shot { max-height: none !important; }
+
+  /* Archive: project image full width above its text */
+  .two > [style*="aspect-ratio"] { flex: none !important; width: 100% !important; }
+
+  /* Contact: moon above the heading, card full width */
+  #contact { padding: 150px 6vw 110px !important; }
+  #contact > p { margin: 0 !important; padding-left: 0 !important; white-space: normal !important; flex-basis: 100% !important; }
+  #contact > p > img { left: -8px !important; top: -150px !important; width: 150px !important; height: 150px !important; }
+  #contact > div { flex: 1 1 100% !important; transform: rotate(1deg) !important; padding: 30px 22px !important; }
+}
